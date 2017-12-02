@@ -1,11 +1,17 @@
 <template lang="html">
     <div class="">
-      商品详情页 {{ $route.params.productId }}
-      <img :src="'static/' + goods.productImage" alt="">
-      <span>{{ goods.productName }}</span>
-      <span>{{ goods.salePrice }}</span>
-      <button type="button" name="button" @click="addCart">加入购物车</button>
-
+      <nav-bread>
+        <span>商品详情页</span>
+      </nav-bread>
+      <div class="goodsdetail">
+        <div class="detailimage"><img :src="'static/' + goods.productImage" alt=""></div>
+        <div class="detailinfo">
+          <span><div class="info-top">商品编号：</div><div class="info-detail">{{ $route.params.productId }}</div></span>
+          <span><div class="info-top">商品名：</div><div class="info-detail">{{ goods.productName }}</div></span>
+          <span><div class="info-top">商品价格：</div><div class="info-detail goodprice">¥：{{ goods.salePrice }}</div></span>
+          <span><button type="button" class="addcart" name="button" @click="addCart">加入购物车</button></span>
+        </div>
+      </div>
       <modal v-bind:mdShow="mdShowCart" v-on:close="closeModal">
         <p slot="message">
           <svg class="icon-status-ok">
@@ -22,8 +28,11 @@
 </template>
 
 <script>
+import '@/assets/css/detail.css'
+import Public from '../Public'
 import Modal from '@/components/Modal'
 export default {
+  mixins: [Public],
   components: {
     Modal
   },

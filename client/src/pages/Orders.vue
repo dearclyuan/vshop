@@ -58,12 +58,12 @@
               </ul>
             </div>
             <ul class="cart-item-list" v-for="order in orderList">
-              <li :class="order.orderStatus === '1' ? 'blue' : 'gray'">
-                订单号：{{ order.orderId }}
-                订单状态：{{ order.orderStatus === '1' ? '已完成' : '已取消'}}
-                订单总价：{{ order.orderTotal | currency }}
-                时间：{{ order.createDate }}
-                <a href="#" @click="delCartConfirm(order.orderId)">取消订单</a>
+              <li :class="order.orderStatus === '1' ? 'blue' : 'gray'" id="ordertopinfo">
+                <div class="order-title cart-tab-1">订单号：{{ order.orderId }}</div>
+                <div class="order-title cart-tab-3">订单总价：{{ order.orderTotal | currency }}</div>
+                <div class="order-title cart-tab-2">订单状态：{{ order.orderStatus === '1' ? '已完成' : '已取消'}}</div>
+                <div class="order-title cart-tab-4">交易时间：{{ order.createDate }}</div>
+                <div class="order-title cart-tab-5"><a href="#" @click="delCartConfirm(order.orderId)">取消订单</a></div>
               </li>
               <li v-for="item in order.goodsList">
                 <div class="cart-tab-1">
@@ -108,12 +108,19 @@
 </template>
 <style media="screen" scoped>
   .cart-item-list > li.blue {
+    /* display: block; */
+    /* line-height: 30px; */
     border: 1px dashed blue;
     background: blue;
+    color: #fff;
+    /* margin-top: 10px; */
   }
-  .cart-item-list > li.gray {
+  .cart-item-list > li.gray { 
+    line-height: 30px;
     border: 1px dashed gray;
     background: gray;
+    color: #fff;
+    margin-top: 10px;
   }
 </style>
 <script>
