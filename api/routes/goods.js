@@ -12,13 +12,13 @@ router.get("/list", (req, res, next) => {
   let skip = (page - 1) * pageSize;                //计算需要跳过多少条
   let params = {};                               //查询时候的过滤参数
   // 限制一下priceLevel只能是all, 0, 1, 2, 3
-  let priceLevelLimit = ['all', '0', '1', '2', '3','4','5'];
+  let priceLevelLimit = ['all', '0', '1', '2', '3'];
   // 如果传递的值不在以上这个范围则设置一个默认值
   if (!priceLevelLimit.includes(priceLevel)) {
     priceLevel = 'all';
   }
   if (priceLevel !== 'all') {                              //不是查所有的就需要拼装一下条件
-    let priceItem = [[0, 100], [100, 500], [500, 1000], [1000, 3000],[3000, 5000],[5000, 100000]];
+    let priceItem = [[0, 100], [100, 500], [500, 1000], [1000, 5000]];
     params = {
       salePrice: {
         $gt: priceItem[priceLevel][0],
