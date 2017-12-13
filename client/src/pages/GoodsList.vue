@@ -108,7 +108,15 @@ export default {
         },
         {
           startPrice: '1000.00',
+          endPrice: '3000.00'
+        },
+        {
+          startPrice: '3000.00',
           endPrice: '5000.00'
+        },
+        {
+          startPrice: '5000.00',
+          endPrice: '100000.00'
         }
       ],
       priceChecked: 'all',        // 选中的价格过滤值
