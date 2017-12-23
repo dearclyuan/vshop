@@ -23,13 +23,13 @@
     <div class="navbar">
       <div class="navbar-left-container">
         <a href="/">
-          <img class="navbar-brand-logo" src="/static/logo.png">
+          <img class="navbar-brand-logo" src="/static/logo.jpg">
         </a>
       </div>
       <div class="navbar-right-container" style="display: flex;">
         <div class="navbar-menu-container">
           <span class="navbar-link" v-text="nickName" v-if="nickName"></span>
-          <router-link to="/orders" v-if="nickName">我的订单</router-link>
+          <router-link to="/orders" v-if="nickName">订单</router-link>
           <a href="javascript:void(0)" class="navbar-link" @click="registerModalFlag=true" v-if="!nickName">注册</a>
           <a href="javascript:void(0)" class="navbar-link" @click="loginModalFlag=true" v-if="!nickName">登录</a>
           <a href="javascript:void(0)" class="navbar-link" @click="logOut" v-else>退出</a>
