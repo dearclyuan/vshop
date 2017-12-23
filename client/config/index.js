@@ -13,10 +13,10 @@ module.exports = {
     proxyTable: {
       '/api/**': {
         target: 'http://localhost:3000',
-        pathRewrite:{
-            '^/api':'/'
+        pathRewrite: {
+          '^/api': '/'
         }
-	    },
+	    }
     },
 
     // Various Dev Server settings
